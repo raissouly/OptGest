@@ -1,0 +1,295 @@
+/* Styles pour l'application de gestion des fournisseurs */
+
+/* Styles généraux */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 12px;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Styles pour les boutons */
+.button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333333;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 6px 12px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #d0d0d0;
+    -fx-border-color: #999999;
+}
+
+.button:pressed {
+    -fx-background-color: #c0c0c0;
+}
+
+.button:disabled {
+    -fx-opacity: 0.6;
+    -fx-cursor: default;
+}
+
+/* Boutons avec classes spécifiques */
+.primary-button {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+    -fx-border-color: #0066aa;
+}
+
+.primary-button:hover {
+    -fx-background-color: #0066aa;
+}
+
+.success-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-border-color: #1e7e34;
+}
+
+.success-button:hover {
+    -fx-background-color: #218838;
+}
+
+.danger-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-border-color: #bd2130;
+}
+
+.danger-button:hover {
+    -fx-background-color: #c82333;
+}
+
+.info-button {
+    -fx-background-color: #17a2b8;
+    -fx-text-fill: white;
+    -fx-border-color: #138496;
+}
+
+.info-button:hover {
+    -fx-background-color: #138496;
+}
+
+/* Styles pour les champs de texte */
+.text-field, .text-area {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px 8px;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #007acc;
+    -fx-border-width: 2px;
+}
+
+/* Styles pour les ComboBox */
+.combo-box {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #007acc;
+    -fx-border-width: 2px;
+}
+
+/* Styles pour les TableView */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 0 1px 0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.table-view .column-header:hover {
+    -fx-background-color: #e9ecef;
+}
+
+.table-row-cell {
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #007acc;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+/* Styles pour les onglets */
+.tab-pane {
+    -fx-background-color: white;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #f8f9fa;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #e9ecef;
+    -fx-text-fill: #495057;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px 1px 0 1px;
+    -fx-padding: 8px 16px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-text-fill: #007acc;
+    -fx-border-color: #007acc #dee2e6 white #dee2e6;
+    -fx-border-width: 2px 1px 0 1px;
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: #f8f9fa;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+/* Styles pour les labels */
+.label {
+    -fx-text-fill: #333333;
+}
+
+.label.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #007acc;
+}
+
+.label.subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.label.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+/* Styles pour les statistiques */
+.stat-number {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #007acc;
+}
+
+/* Styles pour les séparateurs */
+.separator {
+    -fx-background-color: #dee2e6;
+}
+
+/* Styles pour les DatePicker */
+.date-picker {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+.date-picker:focused {
+    -fx-border-color: #007acc;
+    -fx-border-width: 2px;
+}
+
+/* Styles pour la barre de statut */
+.status-bar {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 5px 10px;
+}
+
+/* Styles pour les conteneurs */
+.content-pane {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+}
+
+.form-section {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+/* Animations et transitions */
+.button, .text-field, .combo-box {
+    -fx-transition: all 0.2s ease;
+}
+
+/* Responsive design helpers */
+.toolbar {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.search-box {
+    -fx-min-width: 300px;
+    -fx-pref-width: 300px;
+}
+
+/* Styles pour les messages d'erreur */
+.error-text {
+    -fx-text-fill: #dc3545;
+    -fx-font-size: 11px;
+}
+
+.success-text {
+    -fx-text-fill: #28a745;
+    -fx-font-size: 11px;
+}
+
+.warning-text {
+    -fx-text-fill: #ffc107;
+    -fx-font-size: 11px;
+}
+
+/* Styles pour les tooltips */
+.tooltip {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px 8px;
+    -fx-font-size: 11px;
+}

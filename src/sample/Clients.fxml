@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddClientsController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #4a90e2, #357abd);;">
+         <children>
+            <FontAwesomeIconView fill="#fdfcfc" glyphName="USERS" layoutX="18.0" layoutY="60.0" size="5em" />
+            <Label layoutX="107.0" layoutY="21.0" prefHeight="26.0" prefWidth="99.0" text="AddClients" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <VBox layoutX="103.0" layoutY="83.0" prefHeight="259.0" prefWidth="358.0" spacing="5.0">
+         <children>
+            <HBox prefHeight="32.0" prefWidth="373.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="68.0" text="id:" />
+                  <Label fx:id="txtid" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="281.0" text="0" />
+               </children>
+            </HBox>
+            <Label text="Nom" />
+            <TextField fx:id="Nom" promptText="Nom" />
+            <Label layoutX="10.0" layoutY="42.0" text="Prenom" />
+            <TextField fx:id="prenom" layoutX="10.0" layoutY="59.0" promptText="Prenom" />
+            <Label layoutX="10.0" layoutY="84.0" text=" Telephone" />
+            <TextField fx:id="Telephone" layoutX="10.0" layoutY="101.0" promptText=" Telephone" />
+            <Label layoutX="10.0" layoutY="126.0" text="Email " />
+            <TextField fx:id="Email" layoutX="10.0" layoutY="143.0" promptText="Email " />
+         </children>
+      </VBox>
+      <Button contentDisplay="CENTER" layoutX="103.0" layoutY="345.0" mnemonicParsing="false" onAction="#btnOnActionAdd" prefHeight="35.0" prefWidth="358.0" style="-fx-background-color: linear-gradient(to bottom, #4a90e2, #357abd);;" text="Add " textFill="#fbf9f9" textOverrun="CENTER_ELLIPSIS">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button contentDisplay="CENTER" layoutX="105.0" layoutY="395.0" mnemonicParsing="false" onAction="#btnOnActionCancel" prefHeight="35.0" prefWidth="358.0" style="-fx-background-color: linear-gradient(to bottom, #4a90e2, #357abd);" text="Cancel" textFill="#fbf6f6">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

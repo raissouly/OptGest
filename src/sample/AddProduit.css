@@ -1,0 +1,78 @@
+/* Simple CSS for AddProduit */
+
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f0f0f0;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #333;
+    -fx-font-size: 12px;
+}
+
+.header-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 8px;
+}
+
+.text-field:focused {
+    -fx-border-color: #007bff;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #007bff;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 3px;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
+
+.add-button {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+}
+
+.add-button:hover {
+    -fx-background-color: #218838;
+}
+
+.cancel-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #c82333;
+}
+
+/* Reference label */
+.ref-label {
+    -fx-background-color: #e9ecef;
+    -fx-border-color: #007bff;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 5px;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="850.0" prefWidth="873.0" style="-fx-background-color: #f5f5f5;" stylesheets="@Ordonnance.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.OrdonnanceController">
+
+    <!-- Header Section -->
+    <VBox alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="20">
+        <padding>
+            <Insets bottom="25" left="25" right="25" top="25" />
+        </padding>
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Create New Optical Prescription" />
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" text="Please fill in all required fields for optical prescription" />
+    </VBox>
+
+    <!-- Main Content with Scroll - ALTERNATIVE FIX -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="563.0" prefViewportHeight="600" prefWidth="813.0" style="-fx-background-color: transparent; -fx-background: transparent;" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="140">
+
+        <content>
+            <VBox spacing="20" style="-fx-background-color: transparent; -fx-padding: 0 0 50 0; -fx-min-height: 1200;">
+                <HBox spacing="20" style="-fx-background-color: transparent; -fx-min-height: 1000;">
+                    <!-- Left Panel - Patient Information -->
+                    <VBox prefWidth="300" spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                        <padding>
+                            <Insets bottom="20" left="20" right="20" top="20" />
+                        </padding>
+
+                        <VBox spacing="15">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Patient Information" />
+                            <Separator />
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Select Patient:" />
+                                <ComboBox fx:id="comboClient" prefWidth="260" promptText="Select patient from list" style="-fx-font-size: 14px;" />
+                            </VBox>
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Doctor:" />
+                                <ComboBox fx:id="comboDoctor" prefWidth="260" promptText="Select attending doctor" style="-fx-font-size: 14px;" />
+                            </VBox>
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Prescription Date:" />
+                                <DatePicker fx:id="dateOrdonnance" prefWidth="260" promptText="Select date" style="-fx-font-size: 14px;" />
+                            </VBox>
+                        </VBox>
+
+                        <!-- Prescription Details -->
+                        <VBox spacing="15">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Prescription Details" />
+                            <Separator />
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Description:" />
+                                <TextArea fx:id="txtDescription" prefRowCount="3" prefWidth="260" promptText="Enter prescription details..." style="-fx-font-size: 13px; -fx-border-color: #bdc3c7; -fx-border-radius: 5;" wrapText="true" />
+                            </VBox>
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Lens Type:" />
+                                <VBox spacing="8">
+                                    <RadioButton fx:id="radioMonofocal" selected="true" style="-fx-font-size: 13px;" text="Monofocal" />
+                                    <RadioButton fx:id="radioBifocal" style="-fx-font-size: 13px;" text="Bifocal" />
+                                    <RadioButton fx:id="radioProgressif" style="-fx-font-size: 13px;" text="Progressif" />
+                                </VBox>
+                            </VBox>
+
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Priority Level:" />
+                                <VBox spacing="8">
+                                    <RadioButton fx:id="radioNormal" selected="true" style="-fx-font-size: 13px;" text="Normal" />
+                                    <RadioButton fx:id="radioUrgent" style="-fx-font-size: 13px;" text="Urgent" />
+                                    <RadioButton fx:id="radioCritical" style="-fx-font-size: 13px;" text="Critical" />
+                                </VBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Right Panel - Optical Measurements -->
+                    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                        <padding>
+                            <Insets bottom="20" left="20" right="20" top="20" />
+                        </padding>
+
+                        <VBox spacing="15">
+                            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Optical Measurements (Données Optiques)" />
+                            <Separator />
+
+                            <!-- Left Eye Section -->
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;" text="👁️ Left Eye (Œil Gauche):" />
+
+                                <GridPane hgap="15" style="-fx-background-color: #fff5f5; -fx-padding: 15; -fx-background-radius: 8;" vgap="10">
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="80" />
+                                        <ColumnConstraints prefWidth="100" />
+                                        <ColumnConstraints minWidth="80" />
+                                        <ColumnConstraints prefWidth="100" />
+                                    </columnConstraints>
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Sphère:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <TextField fx:id="txtSphereLeft" promptText="-2.50" style="-fx-font-size: 12px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Cylindre:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                    <TextField fx:id="txtCylindreLeft" promptText="-1.25" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Axe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="txtAxeLeft" promptText="90°" style="-fx-font-size: 12px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Addition:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <TextField fx:id="txtAdditionLeft" promptText="+2.00" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                </GridPane>
+                            </VBox>
+
+                            <!-- Right Eye Section -->
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #3498db;" text="👁️ Right Eye (Œil Droit):" />
+
+                                <GridPane hgap="15" style="-fx-background-color: #f0f8ff; -fx-padding: 15; -fx-background-radius: 8;" vgap="10">
+                                    <columnConstraints>
+                                        <ColumnConstraints minWidth="80" />
+                                        <ColumnConstraints prefWidth="100" />
+                                        <ColumnConstraints minWidth="80" />
+                                        <ColumnConstraints prefWidth="100" />
+                                    </columnConstraints>
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Sphère:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                    <TextField fx:id="txtSphereRight" promptText="-2.75" style="-fx-font-size: 12px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Cylindre:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                    <TextField fx:id="txtCylindreRight" promptText="-1.00" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Axe:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="txtAxeRight" promptText="180°" style="-fx-font-size: 12px;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                    <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Addition:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <TextField fx:id="txtAdditionRight" promptText="+2.00" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <rowConstraints>
+                                        <RowConstraints />
+                                        <RowConstraints />
+                                    </rowConstraints>
+                                </GridPane>
+                            </VBox>
+
+                            <!-- Additional Optical Data -->
+                            <GridPane hgap="15" vgap="10">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="120" />
+                                    <ColumnConstraints prefWidth="100" />
+                                    <ColumnConstraints minWidth="120" />
+                                    <ColumnConstraints prefWidth="100" />
+                                </columnConstraints>
+
+                                <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Distance Pupillaire:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField fx:id="txtPD" promptText="64mm" style="-fx-font-size: 12px;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label style="-fx-font-size: 13px; -fx-font-weight: bold;" text="Hauteur Montage:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <TextField fx:id="txtHauteurMontage" promptText="22mm" style="-fx-font-size: 12px;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                <rowConstraints>
+                                    <RowConstraints />
+                                </rowConstraints>
+                            </GridPane>
+
+                            <!-- File Upload Section -->
+                            <VBox spacing="10">
+                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Prescription Scan" />
+                                <Separator />
+
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Button fx:id="btnChooseScan" onAction="#handleChooseScan" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 6 12 6 12;" text="Choose File" />
+                                    <Button fx:id="btnClearScan" onAction="#handleClearScan" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 6 12 6 12;" text="Clear" />
+                                </HBox>
+
+                                <Label fx:id="lblScanPath" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;" text="No file selected" />
+
+                                <VBox fx:id="imagePreviewContainer" managed="false" spacing="5" visible="false">
+                                    <ImageView fx:id="imagePreview" fitHeight="150" fitWidth="200" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);" />
+                                </VBox>
+                            </VBox>
+                        </VBox>
+               
+                   <!-- Action Buttons -->
+                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="446.0" spacing="20">
+                       <Button fx:id="btnSaveOrdonnance" onAction="#handleSaveOrdonnance" prefHeight="40" prefWidth="150" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);" text="Save Prescription" />
+               
+                       <Button fx:id="btnCancel" onAction="#handleCancel" prefHeight="40" prefWidth="150" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);" text="Cancel" />
+               
+                       <Button fx:id="btnReset" onAction="#handleReset" prefHeight="40" prefWidth="150" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 3, 0, 0, 1);" text="Reset" />
+                   </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+</AnchorPane>

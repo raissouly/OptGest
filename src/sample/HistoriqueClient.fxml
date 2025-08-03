@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.HistoriqueController">
+    <top>
+        <Label text="Historique des Commandes du Client" style="-fx-font-size: 18px; -fx-padding: 10;"/>
+    </top>
+
+    <center>
+        <TableView fx:id="tableHistorique">
+            <columns>
+                <TableColumn fx:id="colDate" text="Date"/>
+                <TableColumn fx:id="colProduit" text="Produit"/>
+                <TableColumn fx:id="colQuantite" text="Quantité"/>
+                <TableColumn fx:id="colTotal" text="Montant"/>
+                <TableColumn fx:id="colStatut" text="Statut"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

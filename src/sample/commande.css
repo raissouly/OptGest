@@ -1,0 +1,222 @@
+/* CSS بسيط وفعال لـ JavaFX */
+
+/* الخلفية العامة */
+.root {
+    -fx-background-color: #f0f2f5;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* العنوان الرئيسي */
+.main-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a73e8;
+}
+
+/* منطقة النموذج */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* عنوان القسم */
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* الحقول */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 12;
+}
+
+.text-field:focused {
+    -fx-border-color: #1a73e8;
+    -fx-border-width: 2;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.combo-box:focused {
+    -fx-border-color: #1a73e8;
+    -fx-border-width: 2;
+}
+
+/* DatePicker */
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:focused {
+    -fx-border-color: #1a73e8;
+    -fx-border-width: 2;
+}
+
+/* Spinner */
+.spinner {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.spinner:focused {
+    -fx-border-color: #1a73e8;
+    -fx-border-width: 2;
+}
+
+/* TextArea */
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+}
+
+.text-area:focused {
+    -fx-border-color: #1a73e8;
+    -fx-border-width: 2;
+}
+
+/* الأزرار الأساسية */
+.button {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+/* زر إضافة - أخضر */
+.green-button {
+    -fx-background-color: #34a853;
+    -fx-text-fill: white;
+}
+.green-button:hover {
+    -fx-background-color: #2d8f47;
+}
+
+/* زر تعديل - أزرق */
+.blue-button {
+    -fx-background-color: #1a73e8;
+    -fx-text-fill: white;
+}
+.blue-button:hover {
+    -fx-background-color: #1557b0;
+}
+
+/* زر حذف - أحمر */
+.red-button {
+    -fx-background-color: #ea4335;
+    -fx-text-fill: white;
+}
+.red-button:hover {
+    -fx-background-color: #d23b2c;
+}
+
+/* زر عادي - رمادي */
+.gray-button {
+    -fx-background-color: #5f6368;
+    -fx-text-fill: white;
+}
+.gray-button:hover {
+    -fx-background-color: #4a4d52;
+}
+
+/* إجمالي السعر */
+.total-price {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ea4335;
+}
+
+/* منطقة الفلاتر */
+.filter-area {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 15;
+    -fx-background-radius: 8;
+    -fx-border-color: #e8eaed;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+/* الجدول */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e8eaed;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+}
+
+/* رأس الجدول */
+.table-view .column-header-background {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #e8eaed;
+    -fx-text-fill: #3c4043;
+    -fx-font-weight: bold;
+    -fx-padding: 12 8;
+}
+
+/* خلايا الجدول */
+.table-view .table-cell {
+    -fx-border-color: #f1f3f4;
+    -fx-padding: 10 8;
+    -fx-text-fill: #3c4043;
+}
+
+/* صفوف الجدول */
+.table-view .table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #e8f0fe;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #f1f3f4;
+}
+
+/* شريط الحالة */
+.status-bar {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10 20;
+    -fx-border-color: #e8eaed;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* التسميات */
+.label {
+    -fx-text-fill: #3c4043;
+}
+
+.status-label {
+    -fx-text-fill: #5f6368;
+    -fx-font-size: 12px;
+}

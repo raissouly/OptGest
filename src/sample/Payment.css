@@ -1,0 +1,304 @@
+/* payment-service.css - للاستخدام مع JavaFX */
+
+/* الخلفية الرئيسية */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* BorderPane الرئيسي */
+.border-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);
+}
+
+/* Header Section */
+.header-box {
+    -fx-background-color: linear-gradient(to right, #4CAF50, #45a049);
+    -fx-padding: 20;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.header-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+}
+
+/* Labels */
+.section-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.field-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #555555;
+    -fx-font-weight: normal;
+}
+
+/* TextFields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 8 12;
+    -fx-font-size: 12px;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+.text-field:focused {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(76,175,80,0.5), 5, 0, 0, 0);
+}
+
+.text-field:disabled {
+    -fx-background-color: #f9f9f9;
+    -fx-text-fill: #999;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 8 12;
+}
+
+.combo-box:focused {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #4CAF50;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* RadioButtons */
+.radio-button {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333;
+}
+
+.radio-button .radio {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 2;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #4CAF50;
+}
+
+.radio-button .dot {
+    -fx-background-color: white;
+    -fx-background-radius: 50%;
+}
+
+/* CheckBox */
+.check-box {
+    -fx-font-size: 12px;
+    -fx-text-fill: #333;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 2;
+    -fx-border-radius: 3;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #4CAF50;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* Buttons */
+.button {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 10 20;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+/* Primary Button (Traiter le Paiement) */
+.primary-button {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #45a049);
+    -fx-text-fill: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #45a049, #3d8b40);
+}
+
+/* Secondary Button (Générer Reçu) */
+.secondary-button {
+    -fx-background-color: linear-gradient(to bottom, #2196F3, #1976D2);
+    -fx-text-fill: white;
+}
+
+.secondary-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #1976D2, #1565C0);
+}
+
+/* Warning Button (Voir Historique) */
+.warning-button {
+    -fx-background-color: linear-gradient(to bottom, #FF9800, #F57C00);
+    -fx-text-fill: white;
+}
+
+.warning-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #F57C00, #E65100);
+}
+
+/* Danger Button (Annuler) */
+.danger-button {
+    -fx-background-color: linear-gradient(to bottom, #f44336, #d32f2f);
+    -fx-text-fill: white;
+}
+
+.danger-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #d32f2f, #c62828);
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0 1 1 0;
+    -fx-font-weight: bold;
+    -fx-font-size: 11px;
+    -fx-text-fill: #333;
+}
+
+.table-view .table-cell {
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8;
+    -fx-font-size: 11px;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(76, 175, 80, 0.2);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Status Labels */
+.status-pending {
+    -fx-text-fill: #FF9800;
+    -fx-font-weight: bold;
+}
+
+.status-confirmed {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+
+.status-cancelled {
+    -fx-text-fill: #f44336;
+    -fx-font-weight: bold;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: white;
+}
+
+.scroll-pane .scroll-bar {
+    -fx-background-color: #f0f0f0;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5;
+}
+
+.scroll-pane .scroll-bar .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+/* VBox Sections */
+.section-container {
+    -fx-background-color: white;
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+}
+
+/* GridPane */
+.grid-pane {
+    -fx-hgap: 15;
+    -fx-vgap: 10;
+}
+
+/* Separator */
+.separator {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Animation effects */
+.fade-in {
+    -fx-opacity: 0;
+}
+
+/* Currency Label */
+.currency-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #4CAF50;
+}

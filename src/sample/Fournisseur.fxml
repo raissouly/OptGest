@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="706.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FournisseurController">
+    <children>
+        <BorderPane prefHeight="705.0" prefWidth="1093.0" stylesheets="@fournisseur.css">
+            <top>
+                <VBox spacing="10.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <Label text="Gestion des Fournisseurs">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                    <Separator />
+                </VBox>
+            </top>
+
+            <center>
+                <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE"> <Tab fx:id="listeFournisseursTab" text="Liste des Fournisseurs"> <VBox prefHeight="513.0" prefWidth="1085.0" spacing="15.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="rechercheField" prefWidth="300.0" promptText="Rechercher un fournisseur..." />
+                        <Button fx:id="btnRechercher" onAction="#handleRechercher" styleClass="primary-button" text="Rechercher" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnNouveauFournisseur" onAction="#handleNouveauFournisseur" styleClass="success-button" text="+ Nouveau Fournisseur" />
+                    </HBox>
+
+                    <TableView fx:id="tableFournisseurs" prefHeight="270.0" prefWidth="1035.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" />
+                            <TableColumn fx:id="colNom" prefWidth="200.0" text="Nom" />
+                            <TableColumn fx:id="colTelephone" prefWidth="200.0" text="Téléphone" />
+                            <TableColumn fx:id="colEmail" prefWidth="200.0" text="Email" />
+                            <TableColumn fx:id="colAdresse" prefWidth="200.0" text="Adresse" />
+                            <TableColumn fx:id="colStatut" prefWidth="150.0" text="Statut" />
+                        </columns>
+                    </TableView>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <Button fx:id="btnModifier" onAction="#handleModifier" text="Modifier" />
+                        <Button fx:id="btnSupprimer" onAction="#handleSupprimer" styleClass="danger-button" text="Supprimer" />
+                        <Button fx:id="btnVoirDetails" onAction="#handleVoirDetails" styleClass="info-button" text="Voir Détails" />
+                    </HBox>
+                </VBox>
+                </Tab>
+
+                    <Tab fx:id="tabCoordonnees" text="Coordonnées"> <ScrollPane fitToWidth="true">
+                        <VBox spacing="20.0">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+
+                            <Label text="Informations du Fournisseur">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+
+                            <GridPane hgap="15.0" vgap="15.0">
+                                <columnConstraints>
+                                    <ColumnConstraints minWidth="120.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                    <ColumnConstraints minWidth="120.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" />
+                                </columnConstraints>
+
+                                <Label text="Nom/Raison sociale:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                <Label text="Code fournisseur:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                <TextField fx:id="codeFournisseurField" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                <Label text="Téléphone:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="telephoneField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                <Label text="Fax:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                <TextField fx:id="faxField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                <Label text="Site web:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                <TextField fx:id="siteWebField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                                <Label text="Adresse:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                <TextArea fx:id="adresseArea" prefRowCount="3" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+
+                                <Label text="Ville:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                <TextField fx:id="villeField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                <Label text="Code postal:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                <TextField fx:id="codePostalField" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+
+                                <Label text="Pays:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                <ComboBox fx:id="paysCombo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                                <Label text="Statut:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                <ComboBox fx:id="statutCombo" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                </rowConstraints>
+                            </GridPane>
+
+                            <VBox spacing="10.0">
+                                <Label text="Informations supplémentaires">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextArea fx:id="notesArea" prefRowCount="4" promptText="Notes et commentaires..." />
+                            </VBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                <Button fx:id="btnEnregistrer" onAction="#handleEnregistrer" styleClass="primary-button" text="Enregistrer" />
+                                <Button fx:id="btnAnnuler" onAction="#handleAnnuler" text="Annuler" />
+                                <Button fx:id="btnReinitialiser" onAction="#handleReinitialiser" text="Réinitialiser" />
+                            </HBox>
+                        </VBox>
+                    </ScrollPane>
+                    </Tab>
+
+                    <Tab fx:id="produitsAssociesTab" text="Produits Associés"> <VBox spacing="15.0">
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+
+                        <Label text="Produits fournis par ce fournisseur">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Label text="Fournisseur:" />
+                            <ComboBox fx:id="fournisseurSelectCombo" prefWidth="250.0" />
+                            <Button fx:id="btnNouveauProduit" onAction="#handleNouveauProduit" styleClass="success-button" text="+ Nouveau Produit" />
+                        </HBox>
+
+                        <TableView fx:id="tableProduitsAssocies" VBox.vgrow="ALWAYS"> <columns>
+                            <TableColumn fx:id="colProduitId" prefWidth="100.0" text="Réf. Produit" />
+                            <TableColumn fx:id="colProduitNom" prefWidth="250.0" text="Nom du Produit" />
+                            <TableColumn fx:id="colProduitCategorie" prefWidth="150.0" text="Catégorie" />
+                            <TableColumn fx:id="colPrixFournisseur" prefWidth="120.0" text="Prix Fournisseur" />
+                            <TableColumn fx:id="colDelaiLivraison" prefWidth="200.0" text="Délai Livraison" />
+                            <TableColumn fx:id="colQteMinCommande" prefWidth="80.0" text="Qté Min" />
+                            <TableColumn fx:id="colProduitStatut" prefWidth="130.0" text="Statut" />
+                        </columns>
+                        </TableView>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                            <Button fx:id="btnModifierProduit" onAction="#handleModifierProduit" text="Modifier " />
+                            <Button fx:id="btnSupprimerAssociation" onAction="#handleSupprimerProduit" styleClass="danger-button" text="Supprimer Association" />
+                        </HBox>
+                    </VBox>
+                    </Tab>
+
+                    <Tab fx:id="historiqueLivraisonsTab" text="Historique des Livraisons"> <VBox spacing="15.0">
+                        <padding>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+
+                        <Label text="Historique des livraisons">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <Label text="Fournisseur:" />
+                            <ComboBox fx:id="fournisseurHistoriqueCombo" prefWidth="200.0" />
+
+                            <Label text="Période:" />
+                            <DatePicker fx:id="dateDebutPicker" prefWidth="150.0" />
+                            <Label text="à" />
+                            <DatePicker fx:id="dateFinPicker" prefWidth="150.0" />
+
+                            <Button fx:id="btnFiltrerHistorique" onAction="#handleFiltrerHistorique" styleClass="primary-button" text="Filtrer" />
+                            <Button fx:id="btnExporterHistorique" onAction="#handleExporterHistorique" styleClass="info-button" text="Exporter" />
+                        </HBox>
+
+                        <TableView fx:id="tableHistoriqueLivraisons" prefHeight="320.0" prefWidth="1043.0" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colNumCommande" prefWidth="120.0" text="N° Commande" />
+                                <TableColumn fx:id="colDateCommande" prefWidth="120.0" text="Date Commande" />
+                                <TableColumn fx:id="colDateLivraison" prefWidth="120.0" text="Date Livraison" />
+                                <TableColumn fx:id="colFournisseurHist" prefWidth="150.0" text="Fournisseur" />
+                                <TableColumn fx:id="colProduitsLivres" prefWidth="200.0" text="Produits" />
+                                <TableColumn fx:id="colQuantiteLivree" prefWidth="80.0" text="Quantité" />
+                                <TableColumn fx:id="colMontantLivraison" prefWidth="100.0" text="Montant" />
+                                <TableColumn fx:id="colStatutLivraison" prefWidth="150.0" text="Statut" />
+                            </columns>
+                        </TableView>
+
+                        <HBox alignment="CENTER" spacing="30.0">
+                            <VBox alignment="CENTER" spacing="5.0">
+                                <Label text="Total Livraisons">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblTotalLivraisons" styleClass="stat-number" text="0" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="5.0">
+                                <Label text="Montant Total">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblMontantTotal" styleClass="stat-number" text="0.00 DH" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="5.0">
+                                <Label text="Délai Moyen">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblDelaiMoyen" styleClass="stat-number" text="0 jours" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="5.0">
+                                <Label text="Taux de Ponctualité">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lblTauxPonctualite" styleClass="stat-number" text="0%" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    </Tab>
+                </TabPane>
+            </center>
+
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                    <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                    </padding>
+                    <Label fx:id="lblStatutBar" text="Prêt" />
+                    <Separator orientation="VERTICAL" />
+                    <Label fx:id="lblNombreFournisseurs" text="Fournisseurs: 0" />
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>

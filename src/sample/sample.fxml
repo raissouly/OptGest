@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(to bottom, #3367A3, #2C5788);;" BorderPane.alignment="CENTER">
+         <children>
+            <Circle fill="WHITE" layoutX="114.0" layoutY="177.0" radius="100.0" stroke="#00000001" strokeType="INSIDE" />
+            <ImageView fitHeight="158.0" fitWidth="144.0" layoutX="37.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/893362_97-removebg-preview.png" />
+               </image></ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="6.0" layoutY="53.0" prefHeight="22.0" prefWidth="281.0" text="Login">
+               <font>
+                  <Font name="Verdana Bold" size="15.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Label>
+            <Label layoutX="12.0" layoutY="146.0" prefHeight="27.0" prefWidth="74.0" text="username">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="178.0" prefHeight="27.0" prefWidth="74.0" text="password">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" layoutX="88.0" layoutY="137.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #3367A3, #2C5788);; -fx-border-width: 0px 0px  2px 0px;" />
+            <PasswordField fx:id="password" layoutX="88.0" layoutY="170.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to bottom, #3367A3, #2C5788);; -fx-border-width: 0px 0px  2px 0px;" />
+            <Button fx:id="login" layoutX="19.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnloginOnAction" prefHeight="32.0" prefWidth="233.0" style="-fx-background-color: linear-gradient(to bottom, #3367A3, #2C5788);; -fx-background-radius: 10px;" text="Login" textFill="#fbf9f9">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancel" layoutX="20.0" layoutY="291.0" mnemonicParsing="false" onAction="#btncancelOnAction" prefHeight="32.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to bottom, #3367A3, #2C5788);; -fx-background-radius: 10px;" text="Cancel " textFill="#fbf9f9">
+               <font>
+                  <Font name="Verdana Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="ErrorMessagelable" alignment="CENTER" layoutX="8.0" layoutY="92.0" prefHeight="22.0" prefWidth="281.0">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <textFill>
+                  <RadialGradient centerX="0.4962963104248047" centerY="0.5" focusAngle="25.2" focusDistance="0.17054260608761806" radius="0.47286821705426346">
+                     <stops>
+                        <Stop color="#ff0000f0" />
+                        <Stop color="#ff0000f0" offset="0.056128293241695305" />
+                        <Stop color="#ff0000f0" offset="0.08361970217640319" />
+                        <Stop color="#ff0000f0" offset="0.13631156930126" />
+                        <Stop color="#fb0000" offset="0.9974457215836527" />
+                        <Stop color="#f94e4e" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

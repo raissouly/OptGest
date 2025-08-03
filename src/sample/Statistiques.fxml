@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane prefHeight="578.0" prefWidth="1051.0" stylesheets="@Statistiques.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StatistiquesController">
+    <children>
+        <StackPane layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="1050.0" stylesheets="@style.css">
+            <children>
+                <AnchorPane prefHeight="631.0" prefWidth="1015.0">
+                    <children>
+
+                        <BorderPane layoutX="0.0" layoutY="60.0" prefHeight="650.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                            <center>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <children>
+                                        <AnchorPane layoutX="230.0" layoutY="4.0" prefHeight="567.0" prefWidth="1050.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
+                                            <children>
+                                                <AnchorPane layoutX="9.0" layoutY="-44.0" prefHeight="173.0" prefWidth="1024.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="-44.0">
+                                                    <children>
+                                                        <ScrollPane layoutX="28.0" layoutY="2.0" prefHeight="141.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <content>
+                                                                <AnchorPane prefHeight="181.0" prefWidth="1054.0">
+                                                                    <children>
+                                                                        <AnchorPane layoutX="13.0" layoutY="5.0" prefHeight="140.0" prefWidth="200.0" styleClass="sidebar-button">
+                                                                            <children>
+                                                                                <FontAwesomeIconView fill="#f6f6f6" glyphName="USER" layoutX="11.0" layoutY="87.0" size="5em" />
+                                                                                <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="27.0" prefHeight="24.0" prefWidth="89.0" text="Clients" textFill="#fffdfd" />
+                                                                                <Label fx:id="lblClients" alignment="CENTER" layoutX="116.0" layoutY="80.0" prefHeight="24.0" prefWidth="89.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="0" textFill="#fffdfd" />
+                                                                            </children>
+                                                                        </AnchorPane>
+
+                                                                        <AnchorPane layoutX="274.0" layoutY="5.0" prefHeight="140.0" prefWidth="240.0" styleClass="sidebar-button">
+                                                                            <children>
+                                                                                <FontAwesomeIconView fill="#f6f6f6" glyphName="EURO" layoutX="11.0" layoutY="87.0" size="5em" />
+                                                                                <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="27.0" prefHeight="24.0" prefWidth="89.0" text="Revenus" textFill="#fffdfd" />
+                                                                                <Label fx:id="lblRevenus" alignment="CENTER" layoutX="3.0" layoutY="92.0" prefHeight="40.0" prefWidth="213.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="0.00 DH" textFill="#fffdfd" />
+                                                                            </children>
+                                                                        </AnchorPane>
+
+                                                                        <AnchorPane layoutX="539.0" layoutY="5.0" prefHeight="140.0" prefWidth="200.0" styleClass="sidebar-button">
+                                                                            <children>
+                                                                                <FontAwesomeIconView fill="#f6f6f6" glyphName="DROPBOX" layoutX="11.0" layoutY="87.0" size="5em" />
+                                                                                <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="27.0" prefHeight="24.0" prefWidth="89.0" text="Commandes" textFill="#fffdfd" />
+                                                                                <Label fx:id="lblCommandes" alignment="CENTER" layoutX="116.0" layoutY="80.0" prefHeight="24.0" prefWidth="89.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="0" textFill="#fffdfd" />
+                                                                            </children>
+                                                                        </AnchorPane>
+
+                                                                        <AnchorPane layoutX="809.0" layoutY="5.0" prefHeight="140.0" prefWidth="200.0" styleClass="sidebar-button">
+                                                                            <children>
+                                                                                <FontAwesomeIconView fill="#f6f6f6" glyphName="WARNING" layoutX="11.0" layoutY="87.0" size="5em" />
+                                                                                <Label alignment="CENTER_RIGHT" layoutX="98.0" layoutY="27.0" prefHeight="24.0" prefWidth="89.0" text="Impayés" textFill="#fffdfd" />
+                                                                                <Label fx:id="lblImpayes" alignment="CENTER" layoutX="116.0" layoutY="80.0" prefHeight="24.0" prefWidth="89.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="0" textFill="#fffdfd" />
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </content>
+                                                        </ScrollPane>
+                                                    </children>
+                                                </AnchorPane>
+
+                                                <AnchorPane layoutX="13.0" layoutY="134.0" prefHeight="413.0" prefWidth="1024.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="134.0">
+                                                    <children>
+                                                        <Label layoutX="10.0" layoutY="5.0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Graphique des Statistiques" />
+
+                                                        <LineChart fx:id="lineChart" animated="true" layoutX="1.0" layoutY="45.0" prefHeight="316.0" prefWidth="1024.0" title="Aperçu des Données" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="45.0">
+                                                            <xAxis>
+                                                                <CategoryAxis label="Catégories" fx:id="xAxis" />
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis fx:id="yAxis" label="Valeurs" />
+                                                            </yAxis>
+                                                        </LineChart>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </center>
+                        </BorderPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

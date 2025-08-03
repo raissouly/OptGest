@@ -1,0 +1,72 @@
+/* ===== SIDEBAR BUTTONS - تحسينات على الألوان والظل ===== */
+.sidebar-button {
+    -fx-background-color: linear-gradient(to bottom, #4a90e2, #357ABD);
+    -fx-background-radius: 15px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-padding: 12px 20px;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0, 0, 3);
+    -fx-min-width: 180px;
+    -fx-min-height: 44px;
+    -fx-content-display: left;
+    -fx-graphic-text-gap: 12px;
+    -fx-transition: all 0.2s ease;
+}
+
+/* Hover state - ظل أعمق وزيادة سلاسة التحول */
+.sidebar-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5ea0f5, #4280d9);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 12, 0, 0, 5);
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.04;
+}
+
+/* Pressed state - ضغط أنيق مع تخفيف الظل */
+.sidebar-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3365a3, #275086);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 6, 0, 0, 2);
+    -fx-scale-x: 0.96;
+    -fx-scale-y: 0.96;
+}
+
+/* Focused - تأطير أبيض واضح */
+.sidebar-button:focused {
+    -fx-border-color: #ffffffcc;
+    -fx-border-width: 2.5px;
+    -fx-border-radius: 15px;
+}
+
+/* Active state - نفس ألوان الزر المضغوط */
+.sidebar-button-active {
+    -fx-background-color: linear-gradient(to bottom, #3365a3, #275086);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 12, 0, 0, 5);
+}
+
+/* Disabled - ألوان باهتة مع شفافية أقل */
+.sidebar-button:disabled {
+    -fx-opacity: 0.5;
+    -fx-background-color: linear-gradient(to bottom, #a3b2c1, #8392a3);
+}
+
+/* ===== Sidebar container - ثابت مع تحسين اللون الخلفي ===== */
+.sidebar-container {
+    -fx-background-color: #263949; /* أغمق شوية من قبل لزيادة التباين */
+    -fx-padding: 25px;
+    -fx-spacing: 15px;
+    -fx-alignment: top-left;
+    -fx-min-width: 260px;
+    -fx-pref-width: 260px;
+}
+
+/* ScrollPane - خلفية شفافة بدون حدود */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<BorderPane fx:id="border" prefHeight="750.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DashboardController">
+   <left>
+      <AnchorPane prefWidth="218.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="14.0" layoutY="82.0" prefHeight="635.0" prefWidth="200.0" spacing="15.0"> <!-- Changed prefHeight from 632.0 to 690.0 -->
+               <children>
+                  <Button fx:id="Clients" mnemonicParsing="false" onAction="#btnOnActionClients" prefHeight="42.0" prefWidth="193.0" styleClass="sidebar-button" text="Clients">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fffefe" glyphName="USER" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Produits" mnemonicParsing="false" onAction="#btnOnActionProduits" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Produits">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fdfafa" glyphName="TAG" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Doctor" mnemonicParsing="false" onAction="#btnOnActionDoctor" prefHeight="44.0" prefWidth="191.0" styleClass="sidebar-button" text="Doctor">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fffcfc" glyphName="USER_MD" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Ordonnances" mnemonicParsing="false" onAction="#btnOnActionOrdonnances" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Ordonnances">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fbf9f9" glyphName="FILE_TEXT" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Commandes" mnemonicParsing="false" onAction="#btnOnActionCommandes" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Commandes">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fbfafa" glyphName="SHOPPING_CART" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Rendez_vous" mnemonicParsing="false" onAction="#btnOnActionRendezVous" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Rendez-vous">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fbf8f8" glyphName="CALENDAR" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Fournisseurs" mnemonicParsing="false" onAction="#btnOnActionFournisseurs" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Fournisseurs">
+                     <graphic>
+                        <FontAwesomeIconView fill="#f8f6f6" glyphName="BUILDING" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Factures" mnemonicParsing="false" onAction="#btnOnActionFactures" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Factures">
+                     <graphic>
+                        <FontAwesomeIconView fill="#fdfcfc" glyphName="MONEY" size="20" />
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnOnActionPayment" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Service Paiement">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CREDIT_CARD" size="20">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIconView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnOnActionUtilisateurs" prefHeight="43.0" prefWidth="191.0" styleClass="sidebar-button" text="Utilisateurs">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USERS" size="20">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </FontAwesomeIconView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <Button fx:id="Dashboard" layoutX="15.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnOnActionDashboard" prefHeight="45.0" prefWidth="191.0" styleClass="sidebar-button" stylesheets="@style.css" text="Dashboard">
+               <graphic>
+                  <FontAwesomeIconView fill="#f8f4f4" glyphName="HOME" size="20" />
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </center>
+</BorderPane>

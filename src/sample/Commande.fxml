@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="663.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CommandeController">
+   <children>
+      <BorderPane prefHeight="663.0" prefWidth="1025.0" stylesheets="@commande.css">
+          <top>
+              <VBox spacing="5.0">
+                  <padding>
+                      <Insets bottom="5.0" left="15.0" right="15.0" top="10.0" />
+                  </padding>
+                  <Label text="🛒 Gestion des Commandes">
+                      <font>
+                          <Font name="System Bold" size="18.0" />
+                      </font>
+                  </Label>
+                  <Separator />
+              </VBox>
+          </top>
+
+          <center>
+              <VBox spacing="8.0">
+                  <padding>
+                      <Insets bottom="10.0" left="15.0" right="15.0" top="5.0" />
+                  </padding>
+
+                  <!-- Formulaire de commande compact -->
+                  <VBox spacing="8.0" style="-fx-background-color: #f8f9fa; -fx-padding: 10; -fx-background-radius: 5;">
+                      <Label text="📝 Nouvelle Commande">
+                          <font>
+                              <Font name="System Bold" size="14.0" />
+                          </font>
+                      </Label>
+
+                      <GridPane hgap="10.0" vgap="6.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" />
+                          </columnConstraints>
+
+                          <!-- Ligne 1 -->
+                          <Label text="N° Commande:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                          <TextField fx:id="txtNumeroCommande" prefWidth="120.0" promptText="Auto" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                          <Label text="Date:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                          <DatePicker fx:id="dateCommande" prefWidth="130.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                          <Label text="Client:" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                          <ComboBox fx:id="comboClient" prefWidth="120.0" promptText="Client" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+
+                          <!-- Ligne 2 -->
+                          <Label text="Produit:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                          <ComboBox fx:id="comboProduit" prefWidth="150.0" promptText="Produit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                          <Label text="Quantité:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                          <Spinner fx:id="spinnerQuantite"  prefWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                          <Label text="Prix Unit.:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                          <TextField fx:id="txtPrixUnitaire" prefWidth="100.0" promptText="0.00 DH" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                          <!-- Ligne 3 -->
+                          <Label text="État:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                          <ComboBox fx:id="comboEtatCommande" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                          <Label text="Priorité:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                          <ComboBox fx:id="comboPriorite" prefWidth="130.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                          <Label text="Délai (j):" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                          <Spinner fx:id="spinnerDelaiFabrication"  prefWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+
+                          <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                          </rowConstraints>
+                      </GridPane>
+
+                      <!-- Notes compactes -->
+                      <HBox spacing="10.0">
+                          <Label text="Notes:" />
+                          <TextArea fx:id="txtNotes" prefRowCount="2" promptText="Instructions..." HBox.hgrow="ALWAYS" />
+                          <VBox alignment="CENTER" spacing="5.0">
+                              <Label text="Total:" />
+                              <Label fx:id="lblTotal" style="-fx-font-weight: bold;" text="0.00 DH" />
+                          </VBox>
+                      </HBox>
+
+                      <!-- Boutons compacts -->
+                      <HBox alignment="CENTER" spacing="10.0">
+                          <Button fx:id="btnAjouter" onAction="#ajouterCommande" style="-fx-background-color: #28a745; -fx-text-fill: white;" text="+ Ajouter" />
+                          <Button fx:id="btnModifier" onAction="#modifierCommande" style="-fx-background-color: #007bff; -fx-text-fill: white;" text="✏ Modifier" />
+                          <Button fx:id="btnSupprimer" onAction="#supprimerCommande" style="-fx-background-color: #dc3545; -fx-text-fill: white;" text="🗑 Supprimer" />
+                          <Button fx:id="btnNouveau" onAction="#nouveauCommande" text="📄 Nouveau" />
+                      </HBox>
+                  </VBox>
+
+                  <!-- Filtres compacts -->
+                  <HBox spacing="10.0" style="-fx-background-color: #e9ecef; -fx-padding: 8; -fx-background-radius: 3;">
+                      <Label text="🔍" />
+                      <ComboBox fx:id="filtreEtat" prefWidth="100.0" promptText="État" />
+                      <ComboBox fx:id="filtreClient" prefWidth="120.0" promptText="Client" />
+                      <TextField fx:id="txtRecherche" prefWidth="150.0" promptText="Rechercher..." />
+                      <Button fx:id="btnFiltrer" onAction="#filtrerCommandes" text="🔎" />
+                      <Button fx:id="btnRafraichir" onAction="#rafraichirListe" text="🔄" />
+                  </HBox>
+
+                  <!-- Tableau optimisé -->
+                  <TableView fx:id="tableCommandes" prefHeight="227.0" prefWidth="857.0">
+                      <columns>
+                          <TableColumn fx:id="colNumero" prefWidth="90.0" text="N° Cmd" />
+                          <TableColumn fx:id="colDate" prefWidth="80.0" text="Date" />
+                          <TableColumn fx:id="colClient" prefWidth="120.0" text="Client" />
+                          <TableColumn fx:id="colProduit" prefWidth="120.0" text="Produit" />
+                          <TableColumn fx:id="colQuantite" prefWidth="50.0" text="Qté" />
+                          <TableColumn fx:id="colPrixUnitaire" prefWidth="80.0" text="P.Unit" />
+                          <TableColumn fx:id="colTotal" prefWidth="80.0" text="Total" />
+                          <TableColumn fx:id="colEtat" prefWidth="90.0" text="État" />
+                          <TableColumn fx:id="colDelaiFab" prefWidth="70.0" text="Délai" />
+                          <TableColumn fx:id="colDateLivraison" prefWidth="90.0" text="Livraison" />
+                          <TableColumn fx:id="colPriorite" prefWidth="80.0" text="Priorité" />
+                      </columns>
+                      <placeholder>
+                          <Label text="Aucune commande" />
+                      </placeholder>
+                  </TableView>
+              </VBox>
+          </center>
+
+          <bottom>
+              <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f8f9fa; -fx-padding: 8;">
+                  <Label fx:id="lblStatut" text="Prêt" />
+                  <Label fx:id="lblNombreCommandes" text="Total: 0" />
+                  <Label fx:id="lblCommandesEnCours" text="En cours: 0" />
+                  <Label fx:id="lblCommandesPrete" text="Prêtes: 0" />
+                  <Label fx:id="lblCommandesLivrees" text="Livrées: 0" />
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Button fx:id="btnImprimer" onAction="#imprimerCommande" text="🖨" />
+                  <Button fx:id="btnExporter" onAction="#exporterCommandes" text="📊" />
+
+              </HBox>
+          </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

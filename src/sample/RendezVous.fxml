@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" stylesheets="@Appointment.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RendezVousController">
+
+    <!-- الجزء العلوي - العنوان والإشعارات والأدوات -->
+    <VBox spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+
+        <!-- العنوان -->
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label text="📅 Gestion des Rendez-vous" styleClass="title">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+
+        <!-- الإشعارات -->
+        <VBox fx:id="notificationBox" spacing="5.0" styleClass="notification-box">
+            <Label text="🔔 Notifications" styleClass="notification-title">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+            <ListView fx:id="notificationList" prefHeight="80.0" styleClass="notification-list" />
+        </VBox>
+
+        <!-- شريط الأدوات -->
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="toolbar">
+            <Button fx:id="btnNewAppointment" onAction="#showNewAppointmentForm" styleClass="btn-primary" text="➕ Nouveau RDV" />
+            <Separator orientation="VERTICAL" />
+
+            <Label text="🔍 Recherche:" />
+            <TextField fx:id="searchField" onKeyReleased="#filterAppointments" prefWidth="200.0" promptText="Nom, opticien, service..." />
+
+            <Label text="📊 Statut:" />
+            <ComboBox fx:id="statusFilter" onAction="#filterAppointments" prefWidth="120.0" />
+
+            <Label text="📅 Date:" />
+            <DatePicker fx:id="dateFilter" onAction="#filterAppointments" prefWidth="140.0" />
+
+            <Button fx:id="btnClearFilters" onAction="#clearFilters" text="🗑️ Effacer" />
+        </HBox>
+
+        <!-- الجدول -->
+        <TableView fx:id="appointmentTable" VBox.vgrow="ALWAYS" styleClass="appointment-table">
+            <columns>
+                <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
+                <TableColumn fx:id="colTime" prefWidth="80.0" text="Heure" />
+                <TableColumn fx:id="colClient" prefWidth="150.0" text="Client" />
+                <TableColumn fx:id="colPhone" prefWidth="120.0" text="Téléphone" />
+                <TableColumn fx:id="colOptician" prefWidth="100.0" text="Opticien" />
+                <TableColumn fx:id="colService" prefWidth="140.0" text="Service" />
+                <TableColumn fx:id="colStatus" prefWidth="100.0" text="Statut" />
+                <TableColumn fx:id="colActions" prefWidth="120.0" text="Actions" />
+            </columns>
+        </TableView>
+
+        <!-- الإحصائيات -->
+        <HBox alignment="CENTER" spacing="30.0" styleClass="stats-box">
+            <VBox alignment="CENTER" spacing="5.0" styleClass="stat-item">
+                <Label fx:id="lblTotalAppointments" text="0" styleClass="stat-number">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label text="Total RDV" styleClass="stat-label" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="5.0" styleClass="stat-item">
+                <Label fx:id="lblTodayAppointments" text="0" styleClass="stat-number">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label text="Aujourd'hui" styleClass="stat-label" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="5.0" styleClass="stat-item">
+                <Label fx:id="lblConfirmedAppointments" text="0" styleClass="stat-number">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label text="Confirmés" styleClass="stat-label" />
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="5.0" styleClass="stat-item">
+                <Label fx:id="lblPendingAppointments" text="0" styleClass="stat-number">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label text="En attente" styleClass="stat-label" />
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- الحوارات -->
+    <fx:define>
+        <Dialog fx:id="appointmentDialog" title="Rendez-vous">
+            <dialogPane>
+                <DialogPane>
+                    <content>
+                        <VBox prefWidth="400.0" spacing="15.0">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+
+                            <VBox spacing="10.0" styleClass="form-section">
+                                <Label styleClass="section-title" text="👤 Informations Client">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <HBox spacing="10.0">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Nom complet *" />
+                                        <TextField fx:id="txtClientName" promptText="Nom et prénom du client" />
+                                    </VBox>
+                                </HBox>
+
+                                <HBox spacing="10.0">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Téléphone *" />
+                                        <TextField fx:id="txtClientPhone" promptText="06 12 34 56 78" />
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <VBox spacing="10.0" styleClass="form-section">
+                                <Label styleClass="section-title" text="📅 Planification">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <HBox spacing="10.0">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Date *" />
+                                        <DatePicker fx:id="datePicker" prefWidth="180.0" />
+                                    </VBox>
+
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Heure *" />
+                                        <ComboBox fx:id="timePicker" prefWidth="120.0" />
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <VBox spacing="10.0" styleClass="form-section">
+                                <Label styleClass="section-title" text="🔬 Service">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <HBox spacing="10.0">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Type de service *" />
+                                        <ComboBox fx:id="serviceCombo" prefWidth="200.0" />
+                                    </VBox>
+
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Opticien *" />
+                                        <ComboBox fx:id="opticianCombo" prefWidth="150.0" />
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <VBox spacing="10.0" styleClass="form-section">
+                                <Label styleClass="section-title" text="📝 Détails">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <HBox spacing="10.0">
+                                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                                        <Label text="Statut" />
+                                        <ComboBox fx:id="statusCombo" prefWidth="150.0" />
+                                    </VBox>
+                                </HBox>
+
+                                <VBox spacing="5.0">
+                                    <Label text="Notes (optionnel)" />
+                                    <TextArea fx:id="txtNotes" prefRowCount="3" promptText="Notes concernant le rendez-vous..." wrapText="true" />
+                                </VBox>
+                            </VBox>
+
+                            <Label fx:id="lblValidationError" styleClass="error-message" visible="false" />
+                        </VBox>
+                    </content>
+
+                    <buttonTypes>
+                        <ButtonType fx:constant="CANCEL" />
+                        <ButtonType fx:constant="OK" />
+                    </buttonTypes>
+                </DialogPane>
+            </dialogPane>
+        </Dialog>
+    </fx:define>
+
+    <fx:define>
+        <Alert fx:id="confirmationAlert" alertType="CONFIRMATION" title="Confirmation">
+            <headerText>Confirmer l'action</headerText>
+            <contentText>Êtes-vous sûr de vouloir supprimer ce rendez-vous ?</contentText>
+        </Alert>
+    </fx:define>
+
+    <fx:define>
+        <Dialog fx:id="detailsDialog" title="Détails du Rendez-vous">
+            <dialogPane>
+                <DialogPane>
+                    <content>
+                        <VBox fx:id="detailsContainer" prefWidth="350.0" spacing="15.0">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+
+                    <buttonTypes>
+                        <ButtonType fx:constant="CLOSE" />
+                    </buttonTypes>
+                </DialogPane>
+            </dialogPane>
+        </Dialog>
+    </fx:define>
+</AnchorPane>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PaymentController">
+    <children>
+        <BorderPane prefHeight="650.0" prefWidth="800.0">
+            <top>
+                <Label alignment="CENTER" text="GESTION DES PAIEMENTS" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox spacing="20.0">
+
+                    <!-- Section Informations -->
+                    <HBox spacing="30.0">
+                        <children>
+                            <VBox spacing="10.0">
+                                <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Informations Client" />
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="100.0" text="Client:" />
+                                            <ComboBox fx:id="clientComboBox" prefWidth="200.0" promptText="Sélectionner un client..." />
+                                        </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="100.0" text="N° Commande:" />
+                                            <TextField fx:id="orderNumberField" editable="false" prefWidth="150.0" style="-fx-background-color: #f0f0f0;" />
+                                        </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="100.0" text="N° Facture:" />
+                                            <TextField fx:id="invoiceNumberField" editable="false" prefWidth="150.0" style="-fx-background-color: #f0f0f0;" />
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </VBox>
+
+                            <VBox spacing="10.0">
+                                <children>
+                                    <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Détails du Paiement" />
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="120.0" text="Date Paiement:" />
+                                            <DatePicker fx:id="paymentDatePicker" prefWidth="150.0" />
+                                        </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="120.0" text="Montant Total:" />
+                                            <TextField fx:id="totalAmountField" editable="false" prefWidth="120.0" style="-fx-background-color: #f0f0f0;" />
+                                            <Label text="DH" />
+                                        </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="120.0" text="Montant Payé:" />
+                                            <TextField fx:id="paidAmountField" prefWidth="120.0" promptText="0.00" />
+                                            <Label text="DH" />
+                                        </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                        <children>
+                                            <Label minWidth="120.0" text="Reste à Payer:" />
+                                            <TextField fx:id="remainingAmountField" editable="false" prefWidth="120.0" style="-fx-background-color: #f0f0f0;" />
+                                            <Label text="DH" />
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </VBox>
+                        </children>
+                    </HBox>
+
+                    <!-- Table des Produits -->
+                    <VBox spacing="10.0">
+                        <children>
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Détails des Produits" />
+                            <TableView fx:id="orderProductsTable" prefHeight="180.0">
+                                <columns>
+                                    <TableColumn fx:id="productNameColumn" prefWidth="200.0" text="Produit" />
+                                    <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantité" />
+                                    <TableColumn fx:id="unitPriceColumn" prefWidth="100.0" text="Prix Unitaire" />
+                                    <TableColumn fx:id="lineTotalColumn" prefWidth="120.0" text="Total Ligne" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </VBox>
+
+                    <!-- Méthode de Paiement -->
+                    <VBox spacing="10.0">
+                        <children>
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Méthode de Paiement" />
+                            <HBox spacing="20.0">
+                                <children>
+                                    <RadioButton fx:id="cashRadio" text="Espèces" />
+                                    <RadioButton fx:id="cardRadio" text="Carte" />
+                                    <RadioButton fx:id="transferRadio" text="Virement" />
+                                    <CheckBox fx:id="partialPaymentCheck" text="Paiement partiel autorisé" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+
+                    <!-- Statut -->
+                    <HBox spacing="10.0">
+                        <children>
+                            <Label style="-fx-font-weight: bold;" text="Statut du Paiement:" />
+                            <Label fx:id="paymentStatusLabel" style="-fx-text-fill: #FF8C00; -fx-font-weight: bold;" text="En attente" />
+                        </children>
+                    </HBox>
+
+                    <!-- Boutons -->
+                    <HBox alignment="CENTER" spacing="15.0">
+                        <children>
+                            <Button fx:id="processPaymentBtn" onAction="#processPayment" prefWidth="140.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" text="Traiter Paiement" />
+                            <Button fx:id="generateReceiptBtn" onAction="#generateReceipt" prefWidth="140.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" text="Générer Reçu" />
+                            <Button fx:id="viewHistoryBtn" onAction="#viewHistory" prefWidth="140.0" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold;" text="Voir Historique" />
+                            <Button fx:id="cancelBtn" prefWidth="100.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold;" text="Annuler" />
+                        </children>
+                    </HBox>
+
+                    <!-- Historique -->
+                    <VBox spacing="10.0">
+                        <children>
+                            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Historique des Paiements" />
+                            <TableView fx:id="paymentHistoryTable" prefHeight="200.0">
+                                <columns>
+                                    <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Date" />
+                                    <TableColumn fx:id="methodColumn" prefWidth="100.0" text="Méthode" />
+                                    <TableColumn fx:id="amountColumn" prefWidth="100.0" text="Montant" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="100.0" text="Statut" />
+                                    <TableColumn fx:id="receiptColumn" prefWidth="120.0" text="Reçu" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </VBox>
+
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
